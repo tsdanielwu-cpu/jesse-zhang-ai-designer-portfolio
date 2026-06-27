@@ -916,7 +916,7 @@ function PixelWorkDetail({ work }) {
         </div>
         <div className="container pixel-video-card" data-reveal="card">
           <video
-            src="/assets/projects/pixel-dwelling/pixel-dwelling-2055.mp4"
+            src="https://media.githubusercontent.com/media/tsdanielwu-cpu/jesse-zhang-ai-designer-portfolio/main/public/assets/projects/pixel-dwelling/pixel-dwelling-2055.mp4"
             poster="/assets/projects/pixel-dwelling/cover.jpg"
             controls
             playsInline
@@ -1072,7 +1072,7 @@ function FlowerWorkDetail({ work }) {
         </div>
         <div className="container flower-video-card" data-reveal="card">
           <video
-            src="/assets/projects/flower-guangzhou/city-impression.mp4"
+            src="https://media.githubusercontent.com/media/tsdanielwu-cpu/jesse-zhang-ai-designer-portfolio/main/public/assets/projects/flower-guangzhou/city-impression.mp4"
             poster="/assets/projects/flower-guangzhou/flower-rose-wide.webp"
             controls
             playsInline
