@@ -1,9 +1,13 @@
 ﻿import React, { useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import DarkVeil from "./DarkVeil";
 import HeroParticleField from "./HeroParticleField";
 import ProfileCard from "./ProfileCard";
+import FankunPrototype from "./FankunPrototype";
+import FankunMotionPage from "./FankunMotionPages";
+import FankunMotionGallery from "./FankunMotionGallery";
 import "./styles.css";
+import FolderHome from "./FolderHome";
+import PortfolioBackground from "./PortfolioBackground";
 
 const contacts = {
   phone: "131 8986 0281",
@@ -18,13 +22,14 @@ const resumeSummary = [
 ];
 
 const works = [
+  { id: "fankun", number: "01", title: "饭困", subtitle: "AI 饮食决策助手", category: "产品设计 / UI UX", year: "2026", cover: "/assets/projects/fankun/page-01.webp", intro: "覆盖外卖、到店与多人饭局场景的 AI 饮食决策助手，通过偏好收集、分步筛选与推荐解释，帮助用户更快决定这一餐。", details: ["产品研究", "交互设计", "UI 设计", "品牌视觉"], tools: ["用户研究", "Figma", "UI / UX", "产品设计"] },
   { id: "lora-makeup", number: "01", title: "LoRA 模型训练", subtitle: "特殊妆造图像风格训练", category: "AIGC 模型训练", year: "2026", cover: "/assets/projects/lora/result-03b.webp", intro: "围绕特殊妆造图像建立完整 LoRA 流程，涵盖数据集整理、图片打标、提示词结构、模型训练与效果评估。", details: ["数据集整理", "提示词结构", "模型评估"], tools: ["Stable Diffusion", "LoRA", "Prompt Engineering", "Photoshop"] },
   { id: "virtual-daike", number: "02", title: "虚拟角色物料制作", subtitle: "角色运营与节日传播视觉", category: "虚拟角色物料", year: "2026", cover: "/assets/projects/virtual-daike/poster-main.webp", pages: ["/assets/portfolio/page-11.jpg", "/assets/portfolio/page-12.jpg", "/assets/portfolio/page-13.jpg", "/assets/portfolio/page-14.jpg"], intro: "面向虚拟角色账号运营，节日活动主视觉与日常传播素材制作，强化角色IP与主题创作。", details: ["角色 IP", "节日活动", "社交媒体版式"], tools: ["AIGC", "AI角色运营", "视觉设计", "IP 内容"] },
   { id: "pixel-dwelling", number: "03", title: "像素栖居 2055", subtitle: "未来生活与工作枢纽", category: "未来栖居系统", year: "2026", cover: "/assets/projects/pixel-dwelling/cover.jpg", pages: ["/assets/projects/pixel-dwelling/process-ai-tools.png", "/assets/projects/pixel-dwelling/process-module-docking.png", "/assets/portfolio/page-18.jpg", "/assets/portfolio/page-20.jpg", "/assets/portfolio/page-32.jpg"], intro: "以 2055 年为背景，探索模块化居住单元在城市、森林、海洋与极地环境中的未来生活方式。", details: ["未来栖居", "世界观构建", "AI 图像与视频"], tools: ["Midjourney V7", "Nano Banana", "Flux1.Kontext", "即梦 AI", "Photoshop"] },
   { id: "flower-guangzhou", number: "04", title: "城市印象：花卉广州", subtitle: "建筑地标转译为花卉视觉", category: "城市视觉系统", year: "2026", cover: "/assets/projects/flower-guangzhou/flower-rose-wide.webp", pages: ["/assets/portfolio/page-49.jpg", "/assets/portfolio/page-50.jpg"], intro: "将广州地标建筑转译为花卉图像与动态影像，形成兼具城市记忆、地域符号与梦幻光影的视觉系统。", details: ["建筑转译", "SDXL 与 LoRA", "ControlNet 构图", "动态影像延展"], tools: ["ComfyUI", "SDXL", "ControlNet", "TouchDesigner", "Seedance"] },
 ];
 
-const workOrder = ["lora-makeup", "flower-guangzhou", "pixel-dwelling", "virtual-daike"];
+const workOrder = ["fankun", "lora-makeup", "flower-guangzhou", "pixel-dwelling", "virtual-daike"];
 const displayedWorks = workOrder.map((id, index) => { const work = works.find((item) => item.id === id); if (!work) return null; return { ...work, number: String(index + 1).padStart(2, "0") }; }).filter(Boolean);
 
 const awards = [
@@ -175,6 +180,11 @@ const flowerPdfTranslations = [
   { index: "05", title: "中山纪念堂 / Memorial Hall", keywords: "纪念性 / 花园 / 红蓝对比", flowers: "朱槿 / 鸢尾", text: "纪念性屋顶被转译为花园中心的亭阁结构。", building: "/assets/projects/flower-guangzhou/building-memorial.jpg", result: "/assets/projects/flower-guangzhou/flower-gazebo-wide.webp" },
   { index: "06", title: "粤海关大楼 / Canton Customs House", keywords: "黄色 / 日光 / 立面秩序", flowers: "向日葵 / 桃色花束", text: "向日葵回应海关大楼明亮、稳定的建筑立面。", building: "/assets/projects/flower-guangzhou/building-custom-house.jpg", result: "/assets/projects/flower-guangzhou/flower-sunflower-wide.webp" },
 ];
+const fankunPages = Array.from(
+  { length: 19 },
+  (_, index) => `/assets/projects/fankun/page-${String(index + 1).padStart(2, "0")}.webp`
+);
+
 function useHashRoute() {
   const [hash, setHash] = useState(window.location.hash);
 
@@ -199,20 +209,10 @@ function App() {
 
   return (
     <>
-      <DarkVeil
-        hueShift={-110}
-        noiseIntensity={0}
-        scanlineIntensity={0.78}
-        speed={0.42}
-        scanlineFrequency={24}
-        warpAmount={0}
-        resolutionScale={0.76}
-        fps={36}
-      />
-      {!activeWork && <OpeningAnimation />}
-      <SiteNav activeWork={activeWork} onResume={() => setResumeOpen(true)} />
-      {activeWork ? <WorkDetail work={activeWork} /> : <Home onResume={() => setResumeOpen(true)} />}
-      <ContactFooter />
+      <PortfolioBackground />
+      {activeWork && <SiteNav activeWork={activeWork} onResume={() => setResumeOpen(true)} />}
+      {activeWork ? <WorkDetail work={activeWork} /> : <FolderHome works={displayedWorks} contacts={contacts} awards={awards} onResume={() => setResumeOpen(true)} />}
+      {activeWork && <ContactFooter />}
       {resumeOpen && <ResumeModal onClose={() => setResumeOpen(false)} />}
     </>
   );
@@ -503,6 +503,10 @@ function WorkCard({ index, work }) {
 }
 
 function WorkDetail({ work }) {
+  if (work.id === "fankun") {
+    return <FankunWorkDetail work={work} />;
+  }
+
   if (work.id === "lora-makeup") {
     return <LoraWorkDetail work={work} />;
   }
@@ -578,6 +582,33 @@ function WorkDetail({ work }) {
   );
 }
 
+function FankunWorkDetail({ work }) {
+  return (
+    <main className="detail-page fankun-detail">
+      <header className="fankun-detail-header">
+        <h1 className="fankun-visually-hidden">饭困 · AI 饮食决策助手</h1>
+        <FankunPrototype />
+      </header>
+
+      <FankunMotionGallery />
+
+      <section className="fankun-pages" aria-label="饭困项目作品集页面">
+        {fankunPages.slice(0, -1).map((page, index) => index >= 17 ? <FankunMotionPage key={page} page={index + 1} /> : (
+          <figure key={page} data-reveal="card" style={{ "--stagger-index": Math.min(index, 3) }}>
+            <img
+              src={page}
+              alt={`饭困项目作品集第 ${index + 1} 页`}
+              loading={index === 0 ? "eager" : "lazy"}
+              fetchPriority={index === 0 ? "high" : "auto"}
+              decoding="async"
+            />
+          </figure>
+        ))}
+      </section>
+    </main>
+  );
+}
+
 function VirtualDaikeDetail({ work }) {
   return (
     <main className="detail-page editorial-detail daike-detail">
@@ -646,7 +677,7 @@ function VirtualDaikeDetail({ work }) {
         </div>
         <div className="container daike-daily-grid">
           {daikeDailyImages.map((item, index) => (
-            <figure className={index % 2 ? "is-tall" : ""} key={item.title} data-reveal="card" style={{ "--stagger-index": index }}>
+            <figure className={index % 2 ? "is-tall" : ""} key={item.image} data-reveal="card" style={{ "--stagger-index": index }}>
               <img src={item.image} alt={item.title} loading={index > 1 ? "lazy" : "eager"} data-parallax />
               <figcaption>
                 <strong>{item.title}</strong>
@@ -1150,13 +1181,15 @@ function PdfArchive({ work }) {
 }
 
 function ResumeModal({ onClose }) {
+  const dialogRef = React.useRef(null);
+  useEffect(() => { dialogRef.current.showModal(); }, []);
   return (
-    <div className="modal-backdrop" role="dialog" aria-modal="true" aria-label="简历预览">
+    <dialog ref={dialogRef} className="modal-backdrop resume-dialog" aria-label="简历预览" onCancel={onClose} onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <button className="modal-close" type="button" onClick={onClose}>关闭</button>
       <div className="resume-preview">
         <img src="/assets/resume.jpg" alt="简历预览" />
       </div>
-    </div>
+    </dialog>
   );
 }
 

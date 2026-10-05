@@ -1,0 +1,115 @@
+.fankun-motion-page {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 8 / 5;
+  container-type: inline-size;
+  content-visibility: visible !important;
+  contain-intrinsic-size: none !important;
+}
+
+.fankun-motion-page > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.fankun-motion-page .fankun-expression-covers,
+.fankun-motion-page .fankun-transition-covers,
+.fankun-motion-page .fankun-motion-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.fankun-motion-page.is-active .fankun-expression-covers,
+.fankun-motion-page.is-active .fankun-transition-covers,
+.fankun-motion-page.is-active .fankun-motion-canvas {
+  visibility: visible;
+}
+
+.fankun-expression-covers span {
+  position: absolute;
+  display: block;
+  background: #fff;
+}
+
+.fankun-transition-covers::before {
+  content: "";
+  position: absolute;
+  left: 46.4%;
+  top: 15.7%;
+  width: 53.6%;
+  height: 73%;
+  background: linear-gradient(90deg, rgba(248, 251, 245, 0), #f8fbf5 8%, #f3f8f7 75%);
+}
+
+.fankun-motion-canvas { z-index: 2; }
+.fankun-transition-covers { z-index: 1; }
+.fankun-expression-covers { z-index: 1; }
+
+.fankun-motion-card {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 2.1cqw;
+  background: linear-gradient(180deg, #fbf8e7 0%, #f9e8d0 100%);
+}
+
+.fankun-motion-card--selected { background: linear-gradient(180deg, #fffdee 0%, #faead2 100%); }
+.fankun-motion-card--no-results { background: linear-gradient(180deg, #eef4fb 0%, #d5e5f9 100%); }
+.fankun-motion-card--saved { background: linear-gradient(180deg, #f5ffee 0%, #dcedce 100%); }
+
+.fankun-motion-card-copy {
+  position: absolute;
+  z-index: 3;
+  top: 9%;
+  left: 7%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 85%;
+  color: #1b1f19;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  text-align: left;
+}
+
+.fankun-motion-card-copy strong {
+  font-size: 1.66cqw;
+  font-weight: 650;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.fankun-motion-card-copy span {
+  margin-top: 0.15cqw;
+  color: #697066;
+  font-size: 0.75cqw;
+  line-height: 1.35;
+}
+
+.fankun-motion-card-copy small {
+  margin-top: 0.55cqw;
+  max-width: 16cqw;
+  color: #697066;
+  font-size: 0.51cqw;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.fankun-motion-still {
+  position: absolute;
+  width: 121%;
+  height: 140%;
+  max-width: none;
+  object-fit: fill;
+  left: -9.7%;
+  top: -15.4%;
+}
+
+.fankun-motion-page.is-active .fankun-motion-still { opacity: 0; }
+
+@media (max-width: 640px) {
+  .fankun-motion-card { border-radius: 2.1cqw; }
+}

@@ -1,0 +1,39 @@
+body:has(.portfolio-background) { min-width: 320px; background: #f7f9fc; }
+body:has(.portfolio-background)::before,
+body:has(.portfolio-background)::after { display: none; }
+.portfolio-background { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: #f7f9fc; }
+.portfolio-background::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #ffffff38, #ffffff00 32%, #ffffff20); }
+
+/* Light surfaces let the shared atmosphere show through while keeping case text readable. */
+body:has(.detail-page) { color: #163c47; }
+.editorial-detail { --case-line: #163c472e; }
+.fankun-detail,
+.fankun-detail .fankun-detail-header { background: transparent; }
+.editorial-detail :is(.gallery-section, .case-results, .case-comparison, .case-method, .case-ending, .project-story) { background: transparent; }
+.editorial-detail :is(.case-title h1, .case-section-head h2, .method-copy h3, .comparison-item h3, .story-copy h2, .flower-pair-head h3, .flower-building-card strong, .pixel-concept-card h3, .pixel-scene-copy h3, .daike-ticket-card h3, .daike-festival-copy h2, .overview-grid h2, .detail-hero h1, .detail-meta strong) { color: #163c47; }
+.editorial-detail :is(.case-summary > p, .case-summary dd, .method-copy > p, .comparison-item header p, .story-copy p, .flower-pair-head p, .flower-process-copy p, .pixel-design-note p, .pixel-concept-card p, .pixel-scene-copy p, .daike-ticket-card p, .daike-festival-copy p, .detail-subtitle, .detail-meta span) { color: #345660; }
+.editorial-detail .case-section-head p { color: #345660; }
+.editorial-detail :is(.case-summary dt, .method-meta, .case-ending-inner > p, .flower-building-card span, .pixel-scene-copy > p:first-of-type) { color: #49656e; }
+.editorial-detail :is(.prompt-axis span, .flower-process-points span, .daike-festival-points span, .case-ending a, .back-link) { color: #163c47; }
+.editorial-detail :is(.eyebrow, .case-section-head > span, .method-meta span:first-child, .comparison-item header > span, .story-copy > span, .flower-pair-head > span, .pixel-design-note > span, .pixel-concept-card > div > span, .pixel-scene-copy > span, .daike-ticket-card > div > span, .daike-festival-copy > span, .case-ending a > span) { color: #a32e51; }
+.editorial-detail :is(.back-link, .flower-pair-meta span, .detail-meta span, .flower-process-points span, .daike-festival-points span) { border-color: #163c472e; }
+.editorial-detail .flower-pair-meta span { color: #345660; background: #ffffff80; }
+.editorial-detail :is(.flower-process-copy, .pixel-design-note, .pixel-concept-card, .pixel-scene-card, .pixel-scene-copy, .daike-ticket-card, .daike-festival-copy, .flower-building-card) { background: #ffffffa3; border-color: #163c4724; }
+.editorial-detail .pixel-scene-line { background: #163c472e; }
+.editorial-detail .case-ending a:hover strong,
+.editorial-detail .case-ending a:focus-visible strong { color: #a32e51; }
+.editorial-detail :focus-visible { outline: 3px solid #05637d; outline-offset: 5px; }
+
+body:has(.detail-page) .site-nav { color: #163c47; background: #ffffffe0; border-color: #163c4720; box-shadow: 0 10px 40px #163c4712; }
+body:has(.detail-page) .site-nav nav :is(a, button) { color: #345660; }
+body:has(.detail-page) .site-nav nav a:last-child { color: #fff; }
+body:has(.detail-page) .contact-finale { color: #163c47; background: transparent; }
+body:has(.detail-page) .contact-finale h2 { color: #163c47; }
+body:has(.detail-page) .finale-actions { border-color: #163c472e; }
+body:has(.detail-page) .finale-actions :is(a, span) { color: #345660; border-color: #163c472e; background: #ffffff80; }
+body:has(.detail-page) .contact-finale .eyebrow { color: #a32e51; }
+
+@media (prefers-reduced-transparency: reduce) {
+  .editorial-detail :is(.flower-process-copy, .pixel-design-note, .pixel-concept-card, .pixel-scene-card, .pixel-scene-copy, .daike-ticket-card, .daike-festival-copy, .flower-building-card) { background: #f7f9fc; }
+  body:has(.detail-page) .site-nav { background: #f7f9fc; backdrop-filter: none; }
+}

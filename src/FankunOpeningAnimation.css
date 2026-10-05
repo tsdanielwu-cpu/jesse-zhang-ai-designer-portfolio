@@ -1,0 +1,47 @@
+.fko-opening {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  container-type: inline-size;
+  background: linear-gradient(180deg, #fffff3 0%, #f5f5d0 100%);
+  color: #13170f;
+  font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  user-select: none;
+}
+.fko-opening *, .fko-opening *::before, .fko-opening *::after { box-sizing: border-box; }
+.fko-opening img { display: block; max-width: none; }
+.fko-background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; }
+.fko-ground-shadow, .fko-wordmark, .fko-mascot, .fko-accent, .fko-tagline { position: absolute; }
+.fko-wordmark { animation: fko-logo 1.8s linear infinite both; }
+.fko-mascot { transform-origin: 50% 62%; animation: fko-look 1.8s ease-in-out infinite both; }
+.fko-mascot-body { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.fko-eye, .fko-brow, .fko-pupil { position: absolute; }
+.fko-eye { transform-origin: 50% 50%; animation: fko-blink 1.8s linear infinite both; }
+.fko-eye-white { width: 100%; height: 100%; }
+.fko-pupil { animation: fko-glance 1.8s ease-in-out infinite both; }
+.fko-brow { animation: fko-brow 1.8s ease-in-out infinite both; }
+.fko-accent { display: block; transform-origin: 0 0; transform: rotate(var(--fko-rotation)); }
+.fko-accent-inner { display: block; width: 100%; height: 100%; transform-origin: 50% 50%; animation: fko-accent 1.8s ease-in-out infinite both; animation-delay: var(--fko-delay); }
+.fko-accent img { width: 100%; height: 100%; }
+.fko-accent--rice .fko-accent-inner { border-radius: 52% / 58%; background: linear-gradient(125deg, #fee96e, #f1cd4c); box-shadow: inset -2px -2px 5px #e9be52a8, 0 3px 7px #ab92272b; }
+.fko-accent--lime .fko-accent-inner { border-radius: 99px; background: linear-gradient(120deg, #ebff8c, #b8e330); box-shadow: inset -2px -2px 4px #a7d52c8c, 0 3px 7px #8fac2760; animation-name: fko-accent-lime; }
+.fko-tagline { display: flex; align-items: center; justify-content: center; white-space: nowrap; font-size: 6.616cqw; line-height: 1.385; font-weight: 700; letter-spacing: -.035em; animation: fko-tagline 1.8s ease-out infinite both; }
+.fko-status { position: absolute; z-index: 5; inset: 0 0 auto; height: 15.78cqw; color: #000; font: 600 4.07cqw "PingFang SC", Arial, sans-serif; }
+.fko-status b { position: absolute; left: 17.8cqw; top: 5.2cqw; font-weight: 600; }
+.fko-status i { position: absolute; left: 34.1%; top: 3.3cqw; width: 31.8%; height: 9.42cqw; border-radius: 999px; background: #000; }
+.fko-status img { position: absolute; right: 6.6cqw; top: 5.7cqw; width: 20cqw; height: 3.56cqw; }
+.fko-home-indicator { position: absolute; z-index: 5; bottom: 2.5cqw; left: 36%; width: 28%; height: 1.02cqw; border-radius: 99px; background: #080a09; }
+.fko-opening.is-paused *, .fko-opening.is-paused *::before, .fko-opening.is-paused *::after { animation-play-state: paused !important; }
+.fko-opening.is-one-shot *, .fko-opening.is-one-shot *::before, .fko-opening.is-one-shot *::after { animation-iteration-count: 1 !important; }
+@keyframes fko-logo { 0% { opacity: 0; transform: translateY(8px); } 14% { opacity: 1; transform: translateY(0); } 100% { opacity: 1; transform: translateY(0); } }
+@keyframes fko-look { 0%, 10%, 100% { transform: translateX(0) rotate(0); } 31.67%, 43.33% { transform: translateX(-3px) rotate(-3deg); } 68.33%, 77.22% { transform: translateX(3px) rotate(3deg); } 92.78% { transform: translateX(0) rotate(0); } }
+@keyframes fko-blink { 0%, 88.33%, 100% { transform: scaleY(1); } 92.22%, 93.89% { transform: scaleY(.04); } 98.89% { transform: scaleY(1); } }
+@keyframes fko-glance { 0%, 5.56%, 100% { transform: translateX(0); } 27.78%, 40% { transform: translateX(-7.2px); } 64.44%, 73.89% { transform: translateX(7.2px); } 87.78% { transform: translateX(0); } }
+@keyframes fko-brow { 0%, 10%, 100% { transform: translateY(0); } 31.67%, 43.33% { transform: translateY(-2px); } 68.33%, 77.22% { transform: translateY(-3px); } 92.78% { transform: translateY(0); } }
+@keyframes fko-accent { 0%, 1.67% { opacity: 0; transform: translateY(0) scale(.78); } 10% { opacity: 1; transform: translateY(0) scale(1.06); } 15%, 25% { opacity: 1; transform: translateY(0) scale(1); } 28.89% { opacity: 1; transform: translateY(-3px) scale(1); } 37.78%, 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes fko-accent-lime { 0%, 1.67% { opacity: 0; transform: translateY(0) scale(.78); } 10% { opacity: 1; transform: translateY(0) scale(1.06); } 15%, 60.56% { opacity: 1; transform: translateY(0) scale(1); } 64.44% { opacity: 1; transform: translateY(-3px) scale(1); } 73.33%, 100% { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes fko-tagline { 0%, 55% { opacity: 0; transform: translateY(5px); } 72%, 100% { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .fko-opening *, .fko-opening *::before, .fko-opening *::after { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .fko-accent-inner { transform: none !important; }
+}

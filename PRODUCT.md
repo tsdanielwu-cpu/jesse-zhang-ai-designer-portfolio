@@ -10,7 +10,7 @@ Recruiters, design leads, creative collaborators, and peers reviewing Zhang Zhao
 
 ## Product Purpose
 
-Present a focused AI designer portfolio in which the work is the primary content and the resume is supporting context. Success means visitors can identify the designer's visual point of view, understand four core projects, and confidently initiate contact.
+Present a focused AI designer portfolio in which the work is the primary content and the resume is supporting context. Success means visitors can identify the designer's visual point of view, understand five core projects, and confidently initiate contact.
 
 ## Brand Personality
 
