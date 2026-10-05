@@ -137,6 +137,7 @@ body:has(dialog[open]) { overflow: hidden; }
   .folder-project-info { top: 24px; }
 }
 @media (max-width: 1500px) and (min-width: 761px) { .folder-info-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } .folder-project-info { width: 170px; } }
+@media (max-width: 1300px) and (min-width: 761px) { .folder-home { --folder-scale: 1.1; } }
 @media (max-width: 1100px) {
   .folder-project-info { left: 28px; top: 24px; width: 220px; }
   .folder-info-description { display: none; }
