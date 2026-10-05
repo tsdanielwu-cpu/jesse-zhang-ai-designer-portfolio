@@ -21,3 +21,7 @@ Use CSS transform transitions for card movement, with hover capability gating an
 ## Shared project background and publication
 
 Use one fixed PortfolioBackground at the app root for the homepage and all five project routes. Keep the existing homepage LightPillar parameters and fallback exactly shared, and keep the renderer mounted across route changes. Remove the dark page background and decorative grid. Adapt page headings, prose, navigation and descriptive panels to the homepage ink colors so the light background remains readable; retain image/video surfaces, image-caption overlays and the Fankun prototype's own product styling. Validate the five routes, a project-to-home transition, scroll coverage and production build before publishing the complete local portfolio to the existing GitHub remotes and their Vercel deployment.
+
+## Final homepage refinements
+
+Remove the bottom guidance and expand button highlighted by the user. Hover or keyboard focus remains the desktop expansion trigger, and exposed card tops remain direct project links on touch. Lower the folder assembly by 36–72 viewport-dependent pixels, and raise the background phrase enough to reveal more of both lines. Use the folder's 21px rounded, blurred material for the project card frames, with white translucent highlights instead of cyan. Keep the work images clear. Increase the desktop fan arc by raising the center card 174px, its neighbors roughly 143px, and spreading the edge cards by 84px at 24-degree angles; scale the arc within the mobile viewport.

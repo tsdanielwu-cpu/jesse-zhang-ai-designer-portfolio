@@ -19,11 +19,10 @@ const cardCategories = {
 
 export default function FolderHome({ works, contacts, awards, onResume }) {
   const [activeId, setActiveId] = useState(null);
-  const [spread, setSpread] = useState(false);
   const [pointerSpread, setPointerSpread] = useState(false);
   const [focusSpread, setFocusSpread] = useState(false);
   const [bioOpen, setBioOpen] = useState(false);
-  const expanded = spread || pointerSpread || focusSpread;
+  const expanded = pointerSpread || focusSpread;
   const active = works.find((work) => work.id === activeId);
 
   return (
@@ -84,7 +83,6 @@ export default function FolderHome({ works, contacts, awards, onResume }) {
           <span className="folder-sticker" aria-hidden="true">MAKE<br />IT REAL<span>✳</span></span>
         </div>
 
-        <div className="folder-stage-controls"><span className="folder-hover-guidance">悬停展开作品，点击查看详情</span><span className="folder-touch-guidance">展开卡片，选择一个作品</span><button type="button" onClick={() => setSpread((value) => !value)} aria-expanded={expanded} aria-label={expanded ? "收起作品卡片" : "展开全部作品卡片"}>{expanded ? "收起卡片" : "展开全部"}<span aria-hidden="true">{expanded ? "−" : "+"}</span></button></div>
       </section>
 
       <footer className="folder-home-footer"><span>© 2026 张钊熙</span><a href={`mailto:${contacts.email}`}>{contacts.email} <span aria-hidden="true">↗</span></a><span>保持好奇，慢慢创造。</span></footer>
