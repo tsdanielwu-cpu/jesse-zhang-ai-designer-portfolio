@@ -24,7 +24,7 @@ body:has(.folder-home)::before, body:has(.folder-home)::after { display: none; }
 .folder-nav button { border: 0; padding: 8px 0; background: none; }
 .folder-nav nav a { padding: 8px 0; }
 .folder-nav nav span { margin-left: 5px; }
-.folder-stage { position: relative; min-height: 520px; height: calc(100svh - 172px); }
+.folder-stage { position: relative; min-height: 840px; height: calc(100svh - 172px); }
 .folder-background-type { margin: 0; position: absolute; top: 32%; left: 50%; width: 95%; transform: translate(-50%, -50%) rotate(-5deg); pointer-events: none; user-select: none; text-align: center; font-family: "Segoe Script", "Brush Script MT", cursive; font-size: clamp(72px, 10.3vw, 158px); font-weight: 700; letter-spacing: -.035em; line-height: 1.17; color: #e8eaf6; text-shadow: 0 2px 1px #fff, 2px 5px 2px #c7cddd55, -2px -2px 1px #ffffff, 0 10px 18px #bdc7e529; }
 .folder-background-type span { display: block; }
 .folder-background-type span:first-child { transform: translateX(-11%); }
@@ -129,14 +129,14 @@ body:has(.folder-home)::before, body:has(.folder-home)::after { display: none; }
 body:has(.folder-home) .resume-dialog { background: #163c476e; }
 body:has(.folder-home) .resume-dialog .modal-close { background: #164b5c; }
 body:has(dialog[open]) { overflow: hidden; }
-@media (min-width: 1600px) { .folder-home { --folder-scale: 1.375; } }
+@media (min-width: 1600px) { .folder-home { --folder-scale: 1.375; } .folder-stage { min-height: 920px; } }
 @media (max-height: 800px) and (min-width: 761px) {
   .folder-home { --folder-scale: 1.1; }
-  .folder-stage { min-height: 620px; }
+  .folder-stage { min-height: 840px; }
   .folder-object { transform: translate(-50%, -58%) scale(var(--folder-scale)); }
   .folder-project-info { top: 24px; }
 }
-@media (max-width: 1300px) and (min-width: 761px) { .folder-info-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } .folder-project-info { width: 190px; } }
+@media (max-width: 1500px) and (min-width: 761px) { .folder-info-description { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; } .folder-project-info { width: 170px; } }
 @media (max-width: 1100px) {
   .folder-project-info { left: 28px; top: 24px; width: 220px; }
   .folder-info-description { display: none; }
